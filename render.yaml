@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: maharashtratourguide
+    env: node
+    buildCommand: npm i && npm run render-build
+    startCommand: NODE_ENV=production node dist/index.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false # This will need to be manually set in the Render dashboard
+      - key: NODE_ENV
+        value: production
+      - key: RENDER
+        value: true 

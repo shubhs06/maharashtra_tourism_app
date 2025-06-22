@@ -1,0 +1,25 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "maharashtra-tour-guide",
+      "env": "node",
+      "plan": "free",
+      "buildCommand": "chmod +x ./render-build.sh && ./render-build.sh",
+      "startCommand": "NODE_ENV=production node dist/index.js",
+      "envVars": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "MONGODB_URI",
+          "fromDatabase": {
+            "name": "mongodb",
+            "property": "connectionString"
+          }
+        }
+      ]
+    }
+  ]
+} 
